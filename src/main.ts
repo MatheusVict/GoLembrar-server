@@ -59,8 +59,8 @@ async function bootstrap() {
   });
 
   app.useGlobalPipes(new ValidationPipe());
-  const port = 3000;
-  app.listen(port).then(() => {
+  const port = process.env.PORT;
+  app.listen(port, '0.0.0.0').then(() => {
     const logger = new Logger(bootstrap.name);
     logger.log('Server listening on ' + port);
   });
